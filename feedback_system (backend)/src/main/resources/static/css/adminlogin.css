@@ -1,0 +1,141 @@
+/* CREATED BY: MOYAR, ELCY D. */
+/* This stylesheet defines the layout and design
+   for the Admin Login and Create Account pages.
+   It includes reset rules, responsive layout,
+   container styling, headers, form inputs,
+   buttons, and navigation links. */
+
+
+
+/* =================================
+   ADMIN LOGIN & CREATE ACCOUNT PAGE
+================================= */
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* PAGE LAYOUT */
+body {
+    background-color: #e8f5e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* CONTAINER */
+.login-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* HEADER */
+.header {
+    margin-bottom: 20px;
+}
+
+.header .logo {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    color: #2e7d32;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    border-bottom: 3px solid #2e7d32;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.header h2 {
+    color: #777;
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+/* FORM */
+.login-form .form-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.login-form label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.login-form input:focus {
+    border-color: #2e7d32;
+    outline: none;
+}
+
+/* SUBMIT BUTTON */
+.login-btn {
+    width: 100%;
+    background-color: #2e7d32;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #1b5e20;
+}
+
+/* LINK */
+.create-account {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.create-account a {
+    text-decoration: none;
+    color: #2e7d32;
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.create-account a:hover {
+    color: #1b5e20;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 25px 20px;
+    }
+}

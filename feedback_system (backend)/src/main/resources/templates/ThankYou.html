@@ -1,0 +1,62 @@
+<!--CREATED BY: BRENCES CHARES T. -->
+
+<!--This page is a confirmation screen that appears after a user submits their feedback.
+It thanks the user for their input, confirms that their submission was anonymous,
+and provides a simple link to return to the home page.-->
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vote Recorded</title>
+    <link rel="stylesheet" th:href="@{/css/feedback.css}">
+    <style>
+        .thank-you-message {
+            text-align: center;
+            padding: 20px;
+        }
+        .icon {
+            font-size: 60px;
+            color: #38761d;
+            margin-bottom: 20px;
+            display: block;
+        }
+        /* Ensures the button doesn't stretch too wide if the text is short */
+        .home-btn {
+            display: inline-block;
+            width: auto;
+            padding-left: 30px;
+            padding-right: 30px;
+            margin-top: 20px;
+            text-decoration: none; /* Removes underline from link */
+        }
+    </style>
+</head>
+<body>
+
+<div class="feedback-container">
+    <div class="thank-you-message">
+        <div class="icon">✓</div>
+
+        <h2 th:if="${param.error}" style="color: #d9534f;">Limit Reached</h2>
+        <h2 th:unless="${param.error}">Thank You!</h2>
+
+        <div th:if="${param.error}">
+            <p>You have already voted in this session.</p>
+            <p style="font-size: 0.9em; color: #666;">One vote per student is allowed.</p>
+        </div>
+
+        <div th:unless="${param.error}">
+            <p>Your vote has been successfully counted.</p>
+            <p>Your input helps us prioritize the most urgent issues.</p>
+        </div>
+
+        <a th:href="@{/user}" class="submit-btn home-btn">
+            Back to Home
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

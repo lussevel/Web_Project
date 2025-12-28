@@ -1,0 +1,186 @@
+/* =================================
+   FEEDBACK LIST PAGE
+================================= */
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* PAGE LAYOUT */
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f7f4;
+}
+
+/* ================================
+   SIDEBAR
+================================ */
+.sidebar {
+    width: 220px;
+    background-color: #2e7d32;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background-color: #1b5e20;
+}
+
+/* ================================
+   MAIN CONTENT
+================================ */
+.main-content {
+    flex: 1;
+    padding: 30px;
+}
+
+/* HEADER */
+.main-header h1 {
+    font-size: 26px;
+    color: #2e7d32;
+    margin-bottom: 25px;
+}
+
+/* ================================
+   FILTER SECTION
+================================ */
+.filter-section {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.filter-section form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.filter-group select,
+.filter-group input[type="date"] {
+    padding: 6px 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* FILTER BUTTON */
+.filter-btn {
+    background-color: #2e7d32;
+    color: #ffffff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filter-btn:hover {
+    background-color: #1b5e20;
+}
+
+/* ================================
+   TABLE SECTION
+================================ */
+.table-section table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.table-section th,
+.table-section td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.table-section th {
+    background-color: #f1f1f1;
+    font-weight: 600;
+}
+
+.table-section tr:hover {
+    background-color: #f6f6f6;
+}
+
+/* ================================
+   STATUS BADGES
+================================ */
+.status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.status.pending {
+    background-color: #f57c00;
+}
+
+.status.reviewed {
+    background-color: #1976d2;
+}
+
+.status.resolved {
+    background-color: #2e7d32;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    .filter-section form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+}

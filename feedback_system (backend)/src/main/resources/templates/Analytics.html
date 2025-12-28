@@ -1,0 +1,88 @@
+<!-- CREATED BY: DUGAN, APRIL LYSSA P. -->
+<!-- This page displays analytics and statistics related to system feedback.
+It shows feedback distribution by category, overall counts, and voting summaries.
+The layout helps administrators analyze system usage and feedback trends. -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Analytics</title>
+    <link rel="stylesheet" th:href="@{/css/analytics.css}">
+</head>
+<body>
+
+<aside class="sidebar">
+    <h2>Admin Panel</h2>
+    <ul>
+        <li><a href="/admin/dashboard">Dashboard</a></li>
+        <li><a href="/admin/feedback">Feedback</a></li>
+        <li><a href="/admin/analytics" class="active">Analytics</a></li>
+        <li><a href="/admin/accounts">Accounts</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+</aside>
+
+<div class="container">
+    <header><h1>Analytics Dashboard</h1></header>
+
+    <section class="analytics-section">
+        <h2>Analytics by Category</h2>
+
+        <div class="category-cards">
+            <div class="category-card">
+                <h3>Facilities</h3>
+                <p class="percentage">[[${categoryPercentages.Facilities}]]%</p>
+                <div class="bar" th:style="'width:'+${categoryPercentages.Facilities}+'%'"></div>
+            </div>
+
+            <div class="category-card">
+                <h3>Academic Concerns</h3>
+                <p class="percentage">[[${categoryPercentages.Academics}]]%</p>
+                <div class="bar" th:style="'width:'+${categoryPercentages.Academics}+'%'"></div>
+            </div>
+
+            <div class="category-card">
+                <h3>Events</h3>
+                <p class="percentage">[[${categoryPercentages.Events}]]%</p>
+                <div class="bar" th:style="'width:'+${categoryPercentages.Events}+'%'"></div>
+            </div>
+
+            <div class="category-card">
+                <h3>Others</h3>
+                <p class="percentage">[[${categoryPercentages.Others}]]%</p>
+                <div class="bar" th:style="'width:'+${categoryPercentages.Others}+'%'"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="analytics-section">
+        <h2>Overall Analytics</h2>
+
+        <div class="overall-cards">
+            <div class="overall-card">
+                <h3>Total Feedback Submitted</h3>
+                <p class="total-feedback">[[${totalFeedback}]]</p>
+            </div>
+
+            <div class="overall-card">
+                <h3>Most Voted Feedback</h3>
+                <p class="most-voted">[[${mostVotedTitle}]]</p>
+            </div>
+
+            <div class="overall-card">
+                <h3>Total Votes Cast</h3>
+                <p class="total-votes">[[${totalVotes}]]</p>
+            </div>
+
+            <div class="overall-card">
+                <h3>Resolved vs Pending</h3>
+                <p class="resolved-pending">[[${resolvedPercentage}]]% Resolved</p>
+                <div class="bar" th:style="'width:'+${resolvedPercentage}+'%'"></div>
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

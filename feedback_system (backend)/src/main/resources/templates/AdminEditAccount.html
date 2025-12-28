@@ -1,0 +1,62 @@
+<!-- CREATED BY: DUGAN, APRIL LYSSA P. -->
+<!-- This page allows administrators to edit existing admin account details.
+It displays a form pre-filled with selected admin information such as name, username, and email.
+The page supports validation messages and confirms successful updates. -->
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Admin Account</title>
+    <link rel="stylesheet" th:href="@{/css/accounts.css}">
+</head>
+<body>
+<div class="container">
+
+    <aside class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="/admin/dashboard">Dashboard</a></li>
+            <li><a href="/admin/feedback">Feedback</a></li>
+            <li><a href="/admin/analytics">Analytics</a></li>
+            <li><a href="/admin/accounts" class="active">Accounts</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <header class="main-header">
+            <h1>Edit Admin Account</h1>
+            <a href="/admin/accounts" class="back-btn">← Back to Accounts</a>
+        </header>
+
+        <div th:if="${errors}" class="error-messages">
+            <p th:each="e : ${errors}" th:text="${e}"></p>
+        </div>
+
+        <div th:if="${success}" class="success-message">
+            <p th:text="${success}"></p>
+        </div>
+
+        <form method="post" class="admin-form">
+            <input type="hidden" name="id" th:value="${admin.id}">
+
+            <label>First Name:</label>
+            <input type="text" name="firstname" th:value="${admin.firstname}" required>
+
+            <label>Last Name:</label>
+            <input type="text" name="lastname" th:value="${admin.lastname}" required>
+
+            <label>Username:</label>
+            <input type="text" name="username" th:value="${admin.username}" required>
+
+            <label>Email:</label>
+            <input type="email" name="email" th:value="${admin.email}" required>
+
+            <button type="submit">Update Admin</button>
+        </form>
+    </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+/* CREATED BY: MOYAR, ELCY D. */
+/* This stylesheet defines the layout and design
+   for the Student Feedback Form page. It includes
+   body layout, container styling, headings,
+   form inputs, labels, checkboxes, and submit button. */
+
+
+/* feedback.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f1f8e9; /* Light green background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.feedback-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-top: 6px solid #38761d; /* The College Green color */
+}
+
+h2 {
+    text-align: center;
+    color: #38761d;
+    margin-bottom: 30px;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+}
+
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box; /* Keeps the box from getting too wide */
+    transition: border-color 0.3s;
+}
+
+/* Highlight the box when clicked */
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #38761d;
+    outline: none;
+    box-shadow: 0 0 5px rgba(56, 118, 29, 0.2);
+}
+
+textarea {
+    resize: vertical; /* Allows user to make it taller, but not wider */
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    accent-color: #38761d; /* Makes the checkmark green */
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #38761d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #2b5c16; /* Darker green on hover */
+}

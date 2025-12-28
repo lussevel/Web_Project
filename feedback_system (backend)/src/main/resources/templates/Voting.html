@@ -1,0 +1,60 @@
+<!-- CREATED BY: MOYAR, ELCY D. -->
+<!-- This Voting page allows users to prioritize feedback items by casting a single vote.
+It displays a list of submitted feedback with category, title, description, and current vote count.
+Users can select one top priority issue using radio buttons and submit their choice.
+Thymeleaf expressions dynamically bind feedback data from the backend.
+The layout includes instructions, conditional rendering for empty lists, and a styled submit button. -->
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Prioritize Action | Voting</title>
+    <link rel="stylesheet" th:href="@{/css/voting.css}">
+</head>
+<body>
+
+<div class="feedback-container">
+    <div class="content-area">
+        <h1>SUBMITTED FEEDBACK LIST</h1>
+        <div class="voting-instructions">
+            <p>
+                Click the icon next to an issue to support its immediate resolution.
+            </p>
+            <p class="important">You only have to vote for one top priority.</p>
+        </div>
+    </div>
+
+    <form action="/vote-process" method="post" class="voting-form">
+        <div id="feedback-list">
+
+            <div th:if="${#lists.isEmpty(feedbacks)}">
+                <p>No feedback submitted yet.</p>
+            </div>
+
+            <div th:each="f : ${feedbacks}" class="feedback-item">
+                <label class="vote-label">
+                    <input type="radio" name="top_priority" th:value="${f.id}" required>
+
+                    <div class="feedback-content">
+            <span class="category-tag">
+              [[${'[' + f.category + '] ' + f.title}]]
+            </span>
+                        <p class="feedback-text">[[${f.description}]]</p>
+                    </div>
+
+                    <div class="vote-info">
+                        [[${f.votes}]] vote[[${f.votes != 1 ? 's' : ''}]]
+                    </div>
+                </label>
+            </div>
+
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Vote</button>
+    </form>
+</div>
+
+</body>
+</html>

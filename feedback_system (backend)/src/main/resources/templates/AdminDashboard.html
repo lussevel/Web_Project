@@ -1,0 +1,115 @@
+<!-- CREATED BY: BRENCES CHARES T. -->
+
+<!--This page is the main dashboard where admins can see an overview of all feedback.
+It shows quick stats like the total number of reports and how many are resolved,
+ while the table allows you to filter, view details, and update the status of each message.-->
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/admindashboard.css}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>Admin Panel</h2>
+        <p>Welcome, <strong>[[${adminName}]]</strong></p>
+        <ul>
+            <li><a href="/admin/dashboard" class="active">Dashboard</a></li>
+            <li><a href="/admin/feedback">Feedback</a></li>
+            <li><a href="/admin/analytics">Analytics</a></li>
+            <li><a href="/admin/accounts">Accounts</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-panel">
+        <h1>Dashboard</h1>
+
+        <!-- CARDS -->
+        <section class="cards">
+            <div class="card">
+                <h3>Total Feedback</h3>
+                <p id="total-feedback">[[${totalFeedback}]]</p>
+            </div>
+            <div class="card">
+                <h3>Resolved</h3>
+                <p id="resolved-feedback">[[${resolved}]]</p>
+            </div>
+            <div class="card">
+                <h3>Reviewed</h3>
+                <p id="reviewed-feedback">[[${reviewed}]]</p>
+            </div>
+        </section>
+
+        <!-- TABLE -->
+        <table class="feedback-table">
+            <thead>
+            <tr>
+                <th>Category</th>
+                <th>Title</th>
+                <th>Date Submitted</th>
+                <th>Status</th>
+                <th>Votes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="f : ${feedbackList}"
+                class="feedback-row"
+                th:attr="
+              data-id=${f.id},
+              data-category=${f.category},
+              data-title=${f.title},
+              data-description=${f.description},
+              data-status=${f.status},
+              data-votes=${f.votes}
+            ">
+                <td th:text="${f.category}"></td>
+                <td th:text="${f.title}"></td>
+                <td th:text="${f.createdAt}"></td>
+                <td class="status-cell" th:text="${f.status}"></td>
+                <td class="votes-cell" th:text="${f.votes}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
+</div>
+
+<!-- MODAL (REQUIRED) -->
+<div id="feedback-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span id="modal-close" style="cursor:pointer;float:right;">✖</span>
+
+        <h2>Feedback Details</h2>
+
+        <p><strong>Category:</strong> <span id="modal-category"></span></p>
+        <p><strong>Title:</strong> <span id="modal-title"></span></p>
+        <p><strong>Description:</strong></p>
+        <p id="modal-description"></p>
+
+        <label>Reply / Remarks</label>
+        <textarea id="reply-text"></textarea>
+
+        <label>Status</label>
+        <select id="status-update">
+            <option value="Pending">Pending</option>
+            <option value="Reviewed">Reviewed</option>
+            <option value="Resolved">Resolved</option>
+        </select>
+
+        <br><br>
+        <button id="save-feedback">Save</button>
+        <button id="cancel-feedback">Cancel</button>
+    </div>
+</div>
+
+<script th:src="@{/js/admin-scripts.js}"></script>
+</body>
+</html>

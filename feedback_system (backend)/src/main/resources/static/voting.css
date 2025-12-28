@@ -1,0 +1,100 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  background: #f8f8f8;
+}
+.feedback-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+.content-area h1 {
+  color: #38761d;
+  font-size: 2em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.voting-instructions p {
+  text-align: center;
+  padding: 0 10px;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+.voting-instructions p.important {
+  font-weight: bold;
+  color: #cc0000;
+  font-size: 0.95em;
+  margin: 5px 0 10px 0;
+  border: 1px dashed #ffcccb;
+  border-radius: 5px;
+}
+.feedback-item {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  padding: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+.feedback-item:hover {
+  background-color: #e6f2e6;
+}
+.vote-label {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+.vote-radio {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.feedback-content {
+  flex-grow: 1;
+}
+.category-tag {
+  font-weight: bold;
+  color: #38761d;
+  display: block;
+  margin-bottom: 5px;
+}
+.feedback-text {
+  margin: 0;
+  font-size: 0.95em;
+  color: #333;
+}
+.vote-info {
+  min-width: 70px;
+  text-align: right;
+  font-weight: bold;
+  color: #555;
+  user-select: none;
+}
+.submit-btn {
+  display: block;
+  margin: 20px auto 0 auto;
+  background-color: #38761d;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.submit-btn:hover {
+  background-color: #2e5d16;
+}
+/* Make sure label clicks trigger input */
+input[type="radio"] {
+  cursor: pointer;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Admin</title>
+    <link rel="stylesheet" href="/accounts.css">
+</head>
+<body>
+<div class="container">
+
+    <aside class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="/admin/dashboard">Dashboard</a></li>
+            <li><a href="/admin/feedback">Feedback</a></li>
+            <li><a href="/admin/analytics">Analytics</a></li>
+            <li><a href="/admin/accounts" class="active">Accounts</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <header class="main-header">
+            <h1>Add New Admin</h1>
+            <a href="/admin/accounts" class="back-btn">← Back to Accounts</a>
+        </header>
+
+        <div th:if="${errors}" class="error-messages">
+            <p th:each="e : ${errors}" th:text="${e}"></p>
+        </div>
+
+        <form method="post" class="admin-form">
+            <label>First Name:</label>
+            <input type="text" name="firstname" required>
+
+            <label>Last Name:</label>
+            <input type="text" name="lastname" required>
+
+            <label>Username:</label>
+            <input type="text" name="username" required>
+
+            <label>Email:</label>
+            <input type="email" name="email" required>
+
+            <label>Password:</label>
+            <input type="password" name="password" required placeholder="At least 8 characters">
+
+            <button type="submit">Add Admin</button>
+        </form>
+    </main>
+</div>
+</body>
+</html>

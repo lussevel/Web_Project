@@ -1,0 +1,61 @@
+<!--CREATED BY: BRENCES CHARES T. -->
+
+<!--This page is the main entrance for administrators to get into the system.
+It asks for a username and password to make sure only the right people can see private data.
+If the info is wrong, it shows an error message to help the user try again.-->
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <link rel="stylesheet" th:href="@{/css/adminlogin.css}">
+</head>
+<body>
+
+<div class="login-container">
+    <div class="header">
+        <h1>ADMIN</h1>
+        <h2>Authorized Personnel Only</h2>
+    </div>
+
+    <!-- Display login errors -->
+    <p th:if="${login_error}" style="color:red; text-align:center;">
+        [[${login_error}]]
+    </p>
+
+    <div th:if="${param.error}" style="color: red; margin-bottom: 15px;">
+        Invalid username or password.
+    </div>
+
+    <div th:if="${param.logout}" style="color: #38761d; margin-bottom: 15px; font-weight: bold;">
+        You have been logged out successfully.
+    </div>
+
+    <form class="login-form" action="/admin/login" method="POST">
+
+        <div class="form-group">
+            <label for="username">Admin Username</label>
+            <input type="text" id="username" name="username"
+                   placeholder="Enter admin username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Admin Password</label>
+            <input type="password" id="password" name="password"
+                   placeholder="Enter admin password" required>
+        </div>
+
+        <button type="submit" class="login-btn">Login</button>
+
+        <p class="create-account">
+            <a href="/admin/create-account">Create Admin Account</a>
+        </p>
+
+    </form>
+
+</div>
+
+</body>
+</html>

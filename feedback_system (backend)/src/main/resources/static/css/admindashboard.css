@@ -1,0 +1,200 @@
+/* DUGAN, APRIL LYSSA P. */
+/*This stylesheet controls the layout and visual design of the admin dashboard.
+It defines the sidebar, dashboard cards, tables, filters, and responsive behavior.
+The file focuses purely on styling and does not affect backend functionality.*/
+
+
+/* ================================
+   ADMIN DASHBOARD CSS
+================================ */
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* LAYOUT */
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f7f4;
+}
+
+/* CONTAINER */
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* ================================
+   SIDEBAR
+================================ */
+.sidebar {
+    width: 220px;
+    background-color: #2e7d32;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background-color: #1b5e20;
+}
+
+/* ================================
+   MAIN PANEL
+================================ */
+.main-panel {
+    flex: 1;
+    background-color: #f4f4f4;
+    padding: 25px;
+}
+
+/* HEADER */
+header h1 {
+    font-size: 26px;
+    color: #2e7d32;
+    margin-bottom: 25px;
+}
+
+/* ================================
+   DASHBOARD CARDS
+================================ */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+/* ================================
+   FILTERS
+================================ */
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.filters select,
+.filters input {
+    padding: 6px 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* ================================
+   FEEDBACK TABLE
+================================ */
+.feedback-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.feedback-table th,
+.feedback-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.feedback-table th {
+    background-color: #f1f1f1;
+    font-weight: 600;
+}
+
+.feedback-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* ================================
+   MODAL (IF USED)
+================================ */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 10;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    width: 400px;
+    margin: 80px auto;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 180px;
+    }
+
+    .main-panel {
+        padding: 15px;
+    }
+}
